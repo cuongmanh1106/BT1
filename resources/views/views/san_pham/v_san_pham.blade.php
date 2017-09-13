@@ -26,19 +26,19 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tfoot>
+      <!-- <tfoot>
           <tr>
             <td colspan="6">
             <div class="pagination"> [1][2][3] </div>
-            <div id="phantrang" class="div_phan_trang"><?php echo isset($list)?$list:"" ?></div>
+            <div id="phantrang" class="div_phan_trang">{!! $sp->links() !!}</div>
             <div class="clear"></div></td>
           </tr>
-        </tfoot>
+        </tfoot> -->
       <tbody>
        
 
         @foreach($sp as $s)
-
+       
         <tr>
           <td><input type="checkbox" /></td>
           <td>{{ $s->ma_san_pham }}</td>
@@ -64,8 +64,12 @@
           </th>
         </tr>
        @endforeach
+
       </tbody>
     </table>
+    
+            <div id="phantrang" class="div_phan_trang">{!! $sp->links() !!}</div>
+            <div class="clear"></div>
    
   </div>
   

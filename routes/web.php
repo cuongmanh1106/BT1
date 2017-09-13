@@ -48,4 +48,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('loai_san_pham','Loai_san_phamController');
 Route::resource('san_pham','san_phamController');
+Route::resource('hoa_don','hoa_donController');
 

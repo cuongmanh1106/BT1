@@ -14,7 +14,7 @@ class san_phamController extends Controller
      */
     public function index()
     {
-        $sp = san_pham::all();
+        $sp = san_pham::paginate(10);
         $view = 'views.san_pham.v_san_pham';
         return view('san_pham',compact('sp','view'));
     }

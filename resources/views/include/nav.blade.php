@@ -59,13 +59,13 @@ $(function() {
       <li><a href="loai_nguoi_dung.php" title="kind">Kind of user</a></li>
       <li><a href="them_loai_nguoi_dung.php" title="kind">Kind of user</a></li>
     </ul>
-  </li>
+  </li>-->
    <li> <a href="#" class="nav-top-item" id="bill"> Receipts </a>
     <ul>
-      <li><a href="hoa_don.php" title="bill">List of Receipts</a></li>
+      <li><a href="{!! route('hoa_don.index') !!}" title="bill">List of Receipts</a></li>
 
     </ul>
-  </li> -->
+  </li> 
   
 </ul>
 <!-- End #main-nav -->
