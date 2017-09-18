@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\hoa_don;
-use App\chi_tiet_hoa_don;
-use App\khach_hang;
+use App\size;
 use App\san_pham;
-class hoa_donController extends Controller
+
+class sizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,9 @@ class hoa_donController extends Controller
      */
     public function index()
     {
+       
+
         
-        $hds = hoa_don::paginate(5);
-        
-        $view = "views.hoa_don.v_hoa_don";
-        return view('hoa_don',compact('hds','view'));
     }
 
     /**
@@ -28,10 +25,13 @@ class hoa_donController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create($id) 
+    // {
+        
+    //     // $san_pham = san_pham::where('ma_san_pham',$id);
+    //     $view = "views.size.v_them_size";
+    //     return view('them_size',compact('view','san_pham'));
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -39,13 +39,14 @@ class hoa_donController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $ma_hoa_don = $request->tim;
-        $hds = hoa_don::where('so_hoa_don',$ma_hoa_don)->get();
-        $view = "views.hoa_don.v_hoa_don";
-        // return view('hoa_don',compact('hds','view'));
-        return view('san_pham',compact('view','hds'));
+        $size = new size();
+        $size->ma_san_pham = $id;
+        $size->size = $request->size;
+        $size->save();
+        return redirect()->route('size.show',$id);
+
     }
 
     /**
@@ -56,10 +57,18 @@ class hoa_donController extends Controller
      */
     public function show($id)
     {
-        $cts = chi_tiet_hoa_don::where('so_hoa_don',$id)->get();
-        $sp = san_pham::find($id);
-        $view = "views.hoa_don.v_xem_chi_tiet_hoa_don";
-        return view('chi_tiet_hoa_don',compact('cts','view','sp'));
+        $ten_san_pham = san_pham::find($id);
+        $sizes = size::where('ma_san_pham',$id)->get();
+        $view = "views.size.v_size";
+        return view('size',compact('sizes','view','ten_san_pham'));
+    }
+
+    public function create() 
+    {
+        
+        $san_pham = san_pham::where('ma_san_pham',230);
+        $view = "views.size.v_them_size";
+        return view('them_size',compact('view','san_pham'));
     }
 
     /**
@@ -70,7 +79,7 @@ class hoa_donController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -93,16 +102,8 @@ class hoa_donController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-
-    public function search(Request $request)
-    {
-        $ma_hoa_don = $request->tim;
-        $hds = hoa_don::where('ma_hoa_don',$ma_hoa_don)->get();
-        $view = "views.hoa_don.v_hoa_don";
-        return view('hoa_don',compact('hds','view'));
-
+        $size = size::findOrFail($id);
+        $size->delete();
+        return redirect()->route('size.show',$size->ma_san_pham);
     }
 }

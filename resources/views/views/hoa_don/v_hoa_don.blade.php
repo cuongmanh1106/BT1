@@ -12,7 +12,8 @@ use App\khach_hang;
   <div class="tab-content default-tab" id="tab1">
     <table>
     <caption>
-    <form method="post">
+    <form method="post" action="{!! route('hoa_don.store') !!}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <p>
     <label>Nhập số hóa đơn:</label> <input type="text" name="tim" class="text-input small-input" />&nbsp;
     <input class="button" type="submit" value="Tìm " name="btnTim" />

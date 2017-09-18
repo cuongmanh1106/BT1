@@ -173,4 +173,9 @@ class san_phamController extends Controller
         $san_pham->delete();
         return redirect()->route('san_pham.index');
     }
+
+    public function search(Request $request)
+    {
+        
+    }
 }

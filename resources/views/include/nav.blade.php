@@ -53,13 +53,13 @@ $(function() {
       <li><a href="nguoi_dung.php" title="user">List of user</a></li>
       <li><a href="them_nguoi_dung.php" title="user">Add a user</a></li>
     </ul>
-  </li>
-  <li> <a href="#" class="nav-top-item" id="kind"> Kind of user </a>
-    <ul>
-      <li><a href="loai_nguoi_dung.php" title="kind">Kind of user</a></li>
-      <li><a href="them_loai_nguoi_dung.php" title="kind">Kind of user</a></li>
-    </ul>
   </li>-->
+  <li> <a href="#" class="nav-top-item" id="kind"> User </a>
+    <ul>
+      <li><a href="{!! route('nguoi_dung.index') !!}" title="kind">User</a></li>
+      <li><a href="{!! route('nguoi_dung.create') !!}" title="kind">Add a user</a></li>
+    </ul>
+  </li>
    <li> <a href="#" class="nav-top-item" id="bill"> Receipts </a>
     <ul>
       <li><a href="{!! route('hoa_don.index') !!}" title="bill">List of Receipts</a></li>

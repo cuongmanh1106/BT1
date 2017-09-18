@@ -31,7 +31,14 @@ function Xoasanpham()
 	}
 	return false
 }
-
+function Xoasize()
+{
+	if(confirm("Dữ liệu sẽ bị xóa, Không thể phục hồi lại\nBạn có chắc không?"))
+	{
+		return true;
+	}
+	return false
+}
 function Xoanguoidung(ma_nguoi_dung)
 {
 	if(confirm("Dữ liệu sẽ bị xóa, Không thể phục hồi lại\nBạn có chắc không?"))

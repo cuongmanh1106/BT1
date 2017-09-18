@@ -62,6 +62,12 @@
             </a> 
            
           </th>
+
+          <th>
+            <a href="{!! route('size.show',$s->ma_san_pham) !!}" title="Edit" >
+            <img src="public/images/icons/search.png" alt="Seach_more" />
+            </a>
+          </th>
         </tr>
        @endforeach
 
